@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/*
-    – With @OneToMany, we need to declare a collection inside parent class, we cannot limit the size of that collection
-    – With @ManyToOne, you can modify Repository:
+/**
+     With @OneToMany, we need to declare a collection inside parent class, we cannot limit the size of that collection
+     With @ManyToOne, you can modify Repository:
 * */
 @Data
 @NoArgsConstructor
@@ -22,9 +22,11 @@ public class Performance {
     private Double projectCharge;
     @Column(name = "member_amount")
     private Short memberAmount;
-    @ManyToOne(fetch = FetchType.LAZY,optional = false) // By default, the @ManyToOne association uses FetchType.EAGER for fetch type but it is bad for performance
+    // By default, the @ManyToOne association uses FetchType.EAGER for fetch type but, it is bad for performance
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "project_pgm_id") //  @JoinColumn annotation to specify the foreign key column
-    @JsonIgnore /* @JsonIgnore is used to ignore the logical property used in serialization and deserialization. */
+    // @JsonIgnore is used to ignore the logical property used in serialization and deserialization.
+    @JsonIgnore
     private Programmer programmer;
 
     public Performance(String projectName, Double projectCharge, Short memberAmount) {

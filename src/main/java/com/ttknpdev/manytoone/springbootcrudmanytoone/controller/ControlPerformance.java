@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/api/performance")
 public class ControlPerformance {
 
-    private PerformanceService performanceService;
+    private final PerformanceService<Performance> performanceService;
     @Autowired
     public ControlPerformance(PerformanceService performanceService) {
         this.performanceService = performanceService;

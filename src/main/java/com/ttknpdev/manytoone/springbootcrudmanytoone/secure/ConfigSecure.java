@@ -45,7 +45,6 @@ public class ConfigSecure {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET,"/api/programmer/reads").hasAnyRole("USER","EMPLOYEE","MANAGER")
                 .requestMatchers(HttpMethod.GET,"/api/programmer/read/**").hasAnyRole("USER","EMPLOYEE","MANAGER")
@@ -60,8 +59,8 @@ public class ConfigSecure {
                 .anyRequest().authenticated();
 
         httpSecurity.csrf().disable();
-        httpSecurity.httpBasic();
-        httpSecurity.formLogin().disable(); // we access by Postman
+        httpSecurity.formLogin().disable(); // close default form html
+        httpSecurity.httpBasic(); // open auth on header
 
         return httpSecurity.build();
     }

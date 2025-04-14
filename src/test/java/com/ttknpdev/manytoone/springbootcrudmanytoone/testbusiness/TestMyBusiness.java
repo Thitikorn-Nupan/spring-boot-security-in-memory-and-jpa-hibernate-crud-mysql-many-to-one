@@ -1,7 +1,6 @@
-package com.ttknpdev.manytoone.springbootcrudmanytoone.testmybusiness;
+package com.ttknpdev.manytoone.springbootcrudmanytoone.testbusiness;
 
 import com.ttknpdev.manytoone.springbootcrudmanytoone.dao.DAOPerformance;
-import com.ttknpdev.manytoone.springbootcrudmanytoone.dao.DAOProgrammer;
 import com.ttknpdev.manytoone.springbootcrudmanytoone.entity.Performance;
 import com.ttknpdev.manytoone.springbootcrudmanytoone.entity.Programmer;
 import com.ttknpdev.manytoone.springbootcrudmanytoone.repository.PerformancesRepositories;
@@ -16,6 +15,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
+
 @DataJpaTest
 @RunWith(SpringRunner.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -29,7 +29,8 @@ public class TestMyBusiness {
     private ProgrammerService programmerService;
     private PerformanceService performanceService;
 
-/*    @Autowired
+    /*
+     @Autowired
     public void setProgrammerService() {
         this.programmerService = new DAOProgrammer(programmerRepositories);
     }*/

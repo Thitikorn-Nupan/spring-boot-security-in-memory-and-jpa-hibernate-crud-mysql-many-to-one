@@ -29,14 +29,16 @@ public class DAOProgrammer implements ProgrammerService<Programmer>{
     @Override
     public List<Programmer> readsProgrammer() {
         List<Programmer> programmerList = new ArrayList<>();
-        programmerRepositories.findAll()
+        programmerRepositories
+                .findAll()
                 .forEach(programmerList::add);
         return programmerList;
     }
 
     @Override
     public Programmer readProgrammer(Long id) {
-        return programmerRepositories.findById(id)
+        return programmerRepositories
+                .findById(id)
                 .orElseThrow(()-> new RuntimeException("programmer id "+id+" : Not found!"));
     }
 

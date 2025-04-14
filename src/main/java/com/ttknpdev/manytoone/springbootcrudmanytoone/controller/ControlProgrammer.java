@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/api/programmer")
 public class ControlProgrammer {
-    private ProgrammerService programmerService;
+
+    private final ProgrammerService<Programmer> programmerService;
+
     @Autowired
     public ControlProgrammer(ProgrammerService programmerService) {
         this.programmerService = programmerService;
